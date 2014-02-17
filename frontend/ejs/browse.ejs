@@ -1,0 +1,25 @@
+<% if(up) { %>
+	<a href="#!browse&path=<%=up%>" data-path="<%=up%>" class="block directory">
+		<i class="fa fa-level-up"></i>
+		<span>Parent Directory</span>
+	</a>
+<% } %>
+<% items.each(function(item) { %>
+	
+	<% if(item.attr('type') == 'directory') {%>
+		<a href="#!browse&path=<%=item.fullPath%>" data-path="<%=item.fullPath%>" class="block directory">
+			<i class="fa fa-folder"></i>
+			<span><%=item.name%></span>
+		</a>
+	<% } else if(item.attr('type') == 'video') {%>
+		<a href="#!play&path=<%=item.fullPath%>" data-path="<%=item.fullPath%>" class="block video">
+			<i class="fa fa-video-camera"></i>
+			<span><%=item.name%></span>
+		</a>
+	<% } %>
+
+		
+<% }) %>
+<div style="clear:both"></div>
+<br /><br /><br />
+

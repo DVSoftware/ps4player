@@ -1,0 +1,12 @@
+{
+    "name": "ps4player",
+    "description": "PS4 Media Player",
+    "version": "1.0.0",
+    "private": true,
+    "dependencies": {
+        "express": "3.x",
+        "string": "*",
+        "node-icu-charset-detector": "*",
+        "iconv-lite": "*"
+    }
+}
