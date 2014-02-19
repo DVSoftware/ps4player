@@ -26,6 +26,7 @@ Controller.Router = can.Control.extend(
 		currentTime: 0,
 		startTime: 0,
 		currentHash: '',
+		aspect: 0,
 		init: function(element, options) {
 			element.html('/ejs/layout.ejs', {});
 			can.route.ready();
@@ -148,13 +149,18 @@ Controller.Router = can.Control.extend(
 				self.element.find('.fa-play').hide();
 				var vid = self.element.find('.container video')[0];
 				vid.play();
-				self.element.find('video').width(window.innerWidth);
+
 				self.startTime = parseInt(data.start);
 
 				vid.addEventListener('timeupdate', function(event) {
 					self.currentTime = Math.floor(self.startTime + parseInt(vid.currentTime));
 					self.element.find('.currentTime').html((''+self.currentTime).toHHMMSS()+'/'+(''+self.duration).toHHMMSS());
 					self.element.find('.current').css('width',((self.currentTime/data.duration)*100)+'%');
+					self.element.find('video').width(window.innerWidth);
+					if(self.element.find('video').height() > window.innerHeight) {
+						self.element.find('video').width('auto');
+						self.element.find('video').height(window.innerHeight);
+					}
 				}, false);
 				vid.addEventListener('ended', function(event) {
 					$.get('/pause/'+self.currentHash);
