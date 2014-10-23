@@ -18,9 +18,7 @@ function bufferToString(buffer) {
 
 	var str = iconv.decode(buffer, charset);
 	return str;
-
 }
-
 String.prototype.toHHMMSS = function () {
     var sec_num = parseInt(this, 10); // don't forget the second param
     var hours   = Math.floor(sec_num / 3600);
@@ -33,7 +31,6 @@ String.prototype.toHHMMSS = function () {
     var time    = hours+':'+minutes+':'+seconds;
     return time;
 }
-
 app.configure(function(){
 	app.use(express.logger('dev'));
 	app.use(express.bodyParser());
@@ -78,20 +75,16 @@ app.get('/browse/', function(req, res) {
 					fullPath: filepath + '/' + item
 				}
 			);
-
 		});
 		res.send(response);
 	});
 });
-
-
 app.get('/play/', function(req, res) {
 	if(req.query.path) {
 		filepath = req.query.path;
 	} else {
 		res.send(404);
 	}
-
 	var md5sum = crypto.createHash('md5');
 	var hash = md5sum.update(filepath).digest("hex");
 
@@ -129,7 +122,6 @@ app.get('/play/', function(req, res) {
 	if(pids[req.sessionID]) {
 		child.exec('kill -9 '+pids[req.sessionID]);
 	}
-
 	var proc = child.spawn(cmd, args, options);
 	pids[req.sessionID] = proc.pid;
 
@@ -156,10 +148,7 @@ app.get('/play/', function(req, res) {
 			});
 		}
 	}, 4000);
-
 });
-
-
 app.get('/pause/:hash', function(req, res) {
 	if(pids[req.sessionID]) {
 		child.exec('kill -9 '+pids[req.sessionID]);
@@ -167,15 +156,11 @@ app.get('/pause/:hash', function(req, res) {
 	child.exec('rm -rf /tmp/ps4player/' + req.params.hash + '/');
 	res.send(200);
 });
-
-
 app.get('/play/:hash', function(req, res) {
 	res.contentType('application/x-mpegurl');
 	res.send(fs.readFileSync('/tmp/ps4player/' + req.params.hash + '/playlist.m3u8', 'utf8').replace(/\/tmp\/ps4player\//g, ''));
 });
-
 app.get('/play/:hash/:stream', function(req, res) {
 	res.contentType('application/x-mpegurl');
 	res.sendfile('/tmp/ps4player/' + req.params.hash + '/' + req.params.stream);
 });
-

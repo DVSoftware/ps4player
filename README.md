@@ -1,16 +1,16 @@
 PS4Player
 =========
 
-Video Streamer for Sony PlayStation 4
+Video streamer for Sony PlayStation 4
 
-All of this is possible thanks to HTML5 Video support in PlayStation 4 web browser. Keep in mind that it requires a powerful CPU that can encode H264 videos in realtime.
+All of this is possible thanks to HTML5 video support in the PlayStation 4 web browser. Keep in mind that it requires a powerful CPU that can encode H.264 videos in real time.
 
 How to use
 ----------
-##### OSX
+##### Mac OS X
 - Install node.js from http://nodejs.org/
-- Clone/Download this repository
-- Open Terminal App, and enter the folder where You cloned/extracted the files
+- Clone/download this repository
+- Open the terminal, and enter the folder where you cloned/extracted the files
 - Install required applications and libraries using homebrew (http://brew.sh/)
     - `brew install ffmpeg --enable-libx264 --enable-libfaac --enable-libass`
     - `brew install icu4c`
@@ -19,13 +19,21 @@ How to use
 - Run `npm install` to install node.js dependencies
 - Run `node server.js` to start the application
 - Go to `http://[ip of your computer]:8080/` using PlayStation 4 web browser
-- Grab some popcorn and enjoy
+- Grab some popcorn and enjoy!
 
-##### Linux
-Will be updated later but should be similar to OSX
+##### Linux/BSD
+Will be updated later but should be similar to Mac OS X.
 
 ##### Windows
-I don't use Windows, patches are welcome
+I don't use Windows, patches are welcome.
+
+Basic steps are:
+
+- Install node.js
+- Install ffmpeg
+- Prepare video files
+- Prepare PlayStation 4
+- Watch video
 
 FAQ
 ---
@@ -41,4 +49,4 @@ FAQ
 
 *Q:* Can I buy you a beer?
 
-*A:* Sure, send your donations to dvsoftware@gmail.com PayPal address. Thanks
+*A:* Sure, send your donations to the dvsoftware@gmail.com PayPal address. Thanks!

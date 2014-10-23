@@ -5,7 +5,7 @@
 	</a>
 <% } %>
 <% items.each(function(item) { %>
-	
+
 	<% if(item.attr('type') == 'directory') {%>
 		<a href="#!browse&path=<%=item.fullPath%>" data-path="<%=item.fullPath%>" class="block directory">
 			<i class="fa fa-folder"></i>
@@ -18,8 +18,6 @@
 		</a>
 	<% } %>
 
-		
 <% }) %>
 <div style="clear:both"></div>
-<br /><br /><br />
-
+<br/><br/><br/>

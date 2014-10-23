@@ -37,7 +37,6 @@ Controller.Router = can.Control.extend(
 			this.playing = false;
 			this.element.css('cursor', 'auto');
 			clearInterval(this.timeouts.playTime||null);
-			
 		},
 		'route': function() {
 			this.animate = true;
@@ -75,7 +74,6 @@ Controller.Router = can.Control.extend(
 
 					if(element.data('path').substr(0,element.data('path').lastIndexOf('.')) === item.fullPath.substr(0,item.fullPath.lastIndexOf('.'))) {
 						found = item.fullPath;
-
 					}
 				}
 			});
@@ -116,7 +114,6 @@ Controller.Router = can.Control.extend(
 			var pct = ((event.pageX - posX)/width);
 			var start = Math.floor(this.duration*pct);
 			this.play(can.route.attr('path'), can.route.attr('subtitle')||'', start);
-
 		},
 		'.fa-pause click': function(element, event) {
 			var self = this;
@@ -166,19 +163,13 @@ Controller.Router = can.Control.extend(
 					$.get('/pause/'+self.currentHash);
 					can.route.attr({route: 'browse', path: can.route.attr('path').substr(0, can.route.attr('path').lastIndexOf('/'))}, true);
 				});
-				
-						
-					
 			});
 		},
 		'.block.browse click': function() {
 			can.route.attr({'route': 'browse'},true);
 		}
-
 	}
 );
-
-
 
 $(document).ready(function() {
 	new Controller.Router($('body'));
