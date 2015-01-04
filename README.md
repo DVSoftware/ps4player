@@ -12,7 +12,7 @@ How to use
 - Clone/download this repository
 - Open the terminal, and enter the folder where you cloned/extracted the files
 - Install required applications and libraries using homebrew (http://brew.sh/)
-    - `brew install ffmpeg --enable-libx264 --enable-libfaac --enable-libass`
+    - `brew install ffmpeg --enable-libx264 --enable-libfaac --enable-libass --with-faac --with-ass`
     - `brew install icu4c`
     - `ln -s /usr/local/Cellar/icu4c/*/bin/icu-config /usr/local/bin/icu-config`
     - `ln -s /usr/local/Cellar/icu4c/*/include/unicode /usr/local/include`
